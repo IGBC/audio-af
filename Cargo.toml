@@ -1,0 +1,7 @@
+[package]
+name = "audio-af"
+version = "0.1.0"
+authors = ["lauren"]
+edition = "2018"
+
+[dependencies]
