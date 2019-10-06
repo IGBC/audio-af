@@ -1,8 +1,9 @@
 [package]
 name = "audio-af"
 version = "0.1.0"
-authors = ["lauren"]
+authors = ["SEGFAULT", "Spacekookie"]
 edition = "2018"
 
 [dependencies]
-sample = "0.6.0"
+sample = "0.10.0"
+portaudio = "0.7.0"
