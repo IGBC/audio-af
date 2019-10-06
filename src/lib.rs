@@ -1,3 +1,5 @@
+use lib
+
 #[cfg(test)]
 mod tests {
     #[test]

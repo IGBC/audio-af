@@ -5,3 +5,4 @@ authors = ["lauren"]
 edition = "2018"
 
 [dependencies]
+sample = "0.6.0"
