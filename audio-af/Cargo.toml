@@ -5,6 +5,7 @@ authors = ["SEGFAULT", "Spacekookie"]
 edition = "2018"
 
 [dependencies]
-sample = "0.10.0"
-portaudio = "0.7.0"
+num = "0.3"
+sample = "0.10"
+portaudio = "0.7"
 audio-af-macros = {path = "../audio-af-macros"}
