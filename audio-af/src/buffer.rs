@@ -1,8 +1,7 @@
 use std::borrow::{Borrow, BorrowMut};
-use sample::{frame::Mono, ring_buffer::{Slice, SliceMut}};
+use sample::ring_buffer::{Slice, SliceMut};
 
-use sample::{Frame, Sample};
-use sample::frame::N1;
+use sample::Sample;
 
 pub trait Buffer<T>: BorrowMut<[T]> where T: Sample{
     fn new(size: usize) -> Self;
@@ -12,6 +11,15 @@ pub trait Buffer<T>: BorrowMut<[T]> where T: Sample{
 pub struct TimeBuffer<T> where T: Sample {
     underlying: Box<[T]>,
 }
+
+pub struct FreqBuffer<T> where T: Sample {
+    underlying: Box<[T]>,
+}
+
+pub struct ZBuffer<T> where T: Sample {
+    underlying: Box<[T]>,
+}
+
 
 impl<T: Sample> Buffer<T> for TimeBuffer<T> {
     fn new(size: usize) -> Self {
@@ -38,9 +46,6 @@ impl<T: Sample> BorrowMut<[T]> for TimeBuffer<T> {
     }
 }
 
-pub struct FreqBuffer<T> where T: Sample {
-    underlying: Box<[T]>,
-}
 
 impl<T: Sample> Buffer<T> for FreqBuffer<T> {
     fn new(size: usize) -> Self {
@@ -67,9 +72,6 @@ impl<T: Sample> BorrowMut<[T]> for FreqBuffer<T> {
     }
 }
 
-pub struct ZBuffer<T> where T: Sample {
-    underlying: Box<[T]>,
-}
 
 impl<T: Sample> Buffer<T> for ZBuffer<T> {
     fn new(size: usize) -> Self {
