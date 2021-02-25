@@ -1,9 +1,6 @@
-[package]
-name = "audio-af"
-version = "0.1.0"
-authors = ["SEGFAULT", "Spacekookie"]
-edition = "2018"
+[workspace]
 
-[dependencies]
-sample = "0.10.0"
-portaudio = "0.7.0"
+members = [
+    "audio-af",
+    "audio-af-macros",
+]

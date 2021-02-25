@@ -1,0 +1,17 @@
+[package]
+name = "audio-af-macros"
+version = "0.1.0"
+authors = ["SEGFAULT"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+proc_macro_roids = "0.7.0"
+
+[dependencies.syn]
+version = "1.0"
+features = ["extra-traits"]
+
+[lib]
+proc-macro = true
