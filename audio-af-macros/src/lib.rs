@@ -2,7 +2,6 @@ use proc_macro::TokenStream;
 use syn::{parse_macro_input, DeriveInput, Field};
 use proc_macro_roids::{DeriveInputStructExt, FieldExt};
 use quote::quote;
-use syn::Ident;
 
 #[proc_macro_derive(AafBlock)]
 pub fn derive_aaf(item: TokenStream) -> TokenStream {
@@ -13,9 +12,7 @@ pub fn derive_aaf(item: TokenStream) -> TokenStream {
     let parameters = fields.iter().enumerate().filter(|(_, f)| f.type_name().to_string() == "Parameter");
 
     let num_param = parameters.clone().collect::<Vec<(usize, &Field)>>().len();
-    let params: Vec<Ident> = parameters.clone().map(|(_,f)| {
-        f.ident.clone().unwrap()
-    }).collect();
+    let params = parameters.clone().map(|(_,f)| { f.ident.clone().unwrap() });
 
     let tokens = quote! {
         impl #name {
@@ -28,5 +25,6 @@ pub fn derive_aaf(item: TokenStream) -> TokenStream {
             }
         }
     };
+    
     TokenStream::from(tokens)
 }
